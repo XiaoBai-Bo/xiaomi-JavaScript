@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>小米商城—购物车</title>
+		<link rel="stylesheet" href="../../css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../css/ximi/小米商城购物车.css" />
+		<script type="text/javascript" src="../../js/jquery.min.js" ></script>
+		<script type="text/javascript" src="../../js/bootstrap.js" ></script>
+		<script type="text/javascript" src="../../js/vue.min.js" ></script>
+		
+	</head>
+	<body>
+		<!--头部-->
+		<div class="site-header">
+			<div class="container">
+				<div class="header-logo">
+					<a href="#">
+						<img src="../../img/mi.jpg" />
+					</a>
+				</div>
+				<div class="header-title">
+					<h3>我的购物车</h3>
+					<p>温馨提醒：产品是否购买成功，以最终下单为准哦！请尽快下单。</p>
+				</div>
+				<div class="header-info info-Nouser">
+					<a href="../../index.html">首页</a>
+					<span>|</span>
+					<a href="../page/login.html">登录</a>
+					<span>|</span>
+					<a href="../page/register.html">注册</a>
+				</div>
+			</div>
+		</div>	
+				
+		<!--购物车-->		
+		<div class="page-main" id="app">	
+			<div class="container">
+				<table class="table table-bordered table-hover">
+					<p  class="table h3 text-center text-info">购物车详情</p>
+	                    <thead> 	
+							<tr>
+								<th class="text-center">序号</th>
+								<th class="text-center">手机型号</th>
+								<th class="text-center">单价</th>
+								<th class="text-center">数量</th>
+								<th class="text-center">操作</th>
+							</tr>
+	                    </thead>	
+	                    <tbody>
+	                    	<tr v-for="(user,index) in users" class="text-center">
+	                    		<td>{{index+1}}  </td>
+	                      		<td>{{user.name}} </td>
+	                    		<td>{{user.price}} </td>
+	                    		<td>
+	                    			<button v-bind:disabled="user.count===0" v-on:click="user.count-=1" class="btn btn-light">-</button>
+									{{user.count}}
+									<button v-on:click="user.count+=1" class="btn btn-light">+</button>
+	                    		</td>
+	                    		<td>
+	                    			<button class="btn btn-danger" data-toggle="modal" data-target="#val" v-on:click="nowIndex=index">删  除</button>
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="text-center">
+	                    			总价：${{totleprice}}
+	                    		</td>
+	                    		<td colspan="5" class="text-right">
+	                    			<button  class="btn btn-danger" data-toggle="modal" data-target="#val" v-on:click="nowIndex=-1">删除所有</button>
+	                    		</td>
+	                    	</tr>
+	                    </tbody>
+				</table>
+			</div>
+		
+		<div class="modal" id="val">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title" v-show="nowIndex!==-1">确认要删除{{users[nowIndex]?users[nowIndex].name:''}}商品吗？</h4>
+							<h4 class="modal-title" v-show="nowIndex===-1">确认要删除所有商品吗？</h4>
+                            <button  data-dismiss="modal" class="btn btn-primary close">&times;</button>
+						</div>
+						<div class="modal-body" class="text-center" style="margin-left: 35%;">						
+							<button  data-dismiss="modal" class="btn btn-primary ">取消</button>
+							<button  data-dismiss="modal" class="btn btn-primary" v-on:click="deleteuser">确定</button>
+						</div>
+					</div>
+				</div>							
+			</div>
+		
+		
+		</div>
+		<script type="text/javascript" src="../../js/ximi/shopping.js" ></script>
+	</body>
+</html>

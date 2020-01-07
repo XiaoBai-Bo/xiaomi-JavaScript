@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>小米商城</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="css/ximi/小米商城.css"/>
+		<link rel="stylesheet" href="css/小米font.css" />
+		<link rel="stylesheet" href="css/swiper.min.css" />
+		<link rel="stylesheet" href="css/animate.min.css" />
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<script type="text/javascript" src="js/swiper.min.js"></script>
+		<script type="text/javascript" src="js/swiper.animate.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/ximi/小米商城.js"></script>
+		<script type="text/javascript" src="js/vue.min.js" ></script>
+		<script type="text/javascript" src="js/vue-resource.min.js"></script>
+		<script src="js/ximi/indexLogin.js"></script>
+	</head>
+	<body >
+		<!--顶部栏-->
+		<div class="topBar" id="app" v-cloak>
+		    <div class="container">
+		    	<div class="topBar-list">
+		    		<a href="#">小米商城</a>
+		    		<span>|</span>
+					<a href="#">MUI</a>
+					<span>|</span>
+					<a href="#">Iot</a>
+					<span>|</span>
+					<a href="#">云服务</a>
+					<span>|</span>
+					<a href="#">金融</a>
+					<span>|</span>
+					<a href="#">有品</a>
+					<span>|</span>
+					<a href="#">小米爱开放</a>
+					<span>|</span>
+					<a href="#">政企服务</a>
+					<span>|</span>
+					<a href="#">资质证照</a>
+					<span>|</span>
+					<a href="#">协议规则</a>
+					<span>|</span>
+					<a href="#">下载app</a>
+					<span>|</span>
+					<a href="#">Select Region</a>
+		    	</div>
+		    	<div class="shop">
+		    		<a href="view/page/shopping.html">
+		    			<i class="iconfont" style="margin-right: 5px;">&#xe605;</i>购物车({{users.length}})
+		    		</a>
+			    	<div class="shops" style="display: none;">
+			    		<div class="shops-title">
+			    			<!--购物车中还没有商品赶快去选购吧！-->
+			    			<table class="table table-bordered table-striped" >
+			    				<thead>
+				    				<tr>
+				    					<th>序号</th>
+				    					<th>型号</th>
+				    					<th>价格</th>
+				    					<th>数量</th>
+				    				</tr>
+			    				</thead>
+			    				<tbody>
+			    					<tr v-for="(user,index) in users">
+			    						<td>{{index+1}}</td>
+			    						<td>{{user.name}}</td>
+			    						<td>{{user.price}}</td>
+			    						<td>{{user.count}}</td>
+			    					</tr>
+			    				</tbody>
+			    			</table>
+			    		</div>
+			    	</div>
+		    	</div>
+		    	<div class="login">
+		    		<!--<a href="#MyModal" class="login-btn" data-toggle="modal" data-target="#MyModal">登录</a>-->
+		    		    <!--模态框-->
+		    		    <div class="modal fade" id="MyModal">
+			    		    <div class="modal-dialog">
+			    		    	<div class="modal-content">
+			    		    		<!--模态框头部-->
+			    		    		<div class="modal-header">
+			    		    			<h4 class="modal-title" >欢迎来到小米商城</h4>
+				        				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			    		    		</div>
+			    		    		<!--模态框身体-->
+			    		    		<div class="modal-body" style="margin: 0 auto">
+			    		    			<form class="form-inline" role="form">
+											
+											<div class="form-group" style="width: 100%;">
+												<label for="email" class="col-sm-3">用户名:</label>
+												<div class="form-group col-sm-8">
+												    <input type="email" class="form-control" style="width: 100%;" id="email" placeholder="小米账号/邮箱/手机号" >
+												</div>
+											</div>
+											
+											<div class="form-group" style="margin: 10px 0 10px 0;width: 100%;">
+												<label for="pwd" class="col-sm-3">密  &nbsp; &nbsp;码:</label>
+												<div class="form-group col-sm-8">
+									                <input type="password" class="form-control" style="width: 100%;" id="pwd" placeholder="密码" >
+												</div>
+											</div>
+											<button type="submit" class="btn btn-primary" style="width: 100%;">确认登录</button>
+										</form>
+			    		    		</div>
+			    		    		<!--模态框底部-->
+			    		    		<div class="modal-footer" style="margin: 0 auto;">
+			    		    			<button  class="btn btn-default" data-dismiss="modal">关闭</button>
+										<button  class="btn btn-primary">确定</button>
+			    		    		</div>
+			    		    	</div>
+			    		    </div>
+		    		    </div>
+			    	<div class="user-name" style="display: none;height: 40px;">	
+			    		<a id="unname">
+			    			<span>username</span>
+			    			<span  class="iconfont" hidden="hidden">&#xe61a;</span>
+			    		</a>
+			    		<span>|</span>
+			    		<div class="login-user" style="display: none;">
+							<ul>
+								<li><a href="#">个人中心</a></li>
+								<li><a href="#">评价晒单</a></li>
+								<li><a href="#">我的喜欢</a></li>
+								<li><a href="#">小米账户</a></li>
+								<li class="moveLogin-one"><a href="#">退出登录</a></li>
+							</ul>
+			    		</div>
+			    		<a href="#">我的订单</a>
+			    	</div>
+			    	
+					<div class="user-noname" style="display: block;">
+			    		<a href="view/page/login.html">登录</a>
+			    		<span>|</span>
+			    		<a href="view/page/register.html">注册</a>
+			    		<span>|</span>
+			    		<a href="#">消息通知</a>
+					</div>
+		    	</div>
+			</div>	
+			
+		</div>
+		<!--导航栏-->
+		<div class="header" id="app2" v-cloak>
+			<div class="container">
+				<div class="site-logo">
+					<a href="#">
+						<img src="img/mi.jpg" />
+					</a>
+				</div>
+				
+				<div class="site-list navbar navbar-default">
+					<ul class="nav">
+						<li class="nav-item site-category">
+							<a class="nav-link hidden" href="#">全部商品分类</a>
+						    <!--侧边栏-->
+						    <div class="category-list">
+						    	<ul>
+						    		<li><a href="#">手机 电话卡<span class="iconfont">&#xe604;</span></a></li>
+						    		<li><a href="#">电视 盒子<span class="iconfont">&#xe604;</span></a></li>
+						    		<li><a href="#">笔记本 平板<span class="iconfont">&#xe604;</span></a></li>
+						    		<li><a href="#">家电 插线板<span class="iconfont">&#xe604;</span></a></li>
+						    		<li><a href="#">出行 穿戴<span class="iconfont">&#xe604;</span></a></li>
+						    		<li><a href="#">智能 路由器<span class="iconfont">&#xe604;</span></a></li>
+						    		<li><a href="#">电源 配件 <span class="iconfont">&#xe604;</span></a></li>
+						    		<li><a href="#">健康 儿童<span class="iconfont">&#xe604;</span></a></li>
+						    		<li><a href="#">耳机 音响<span class="iconfont">&#xe604;</span></a></li>
+						    		<li><a href="#">生活 箱包<span class="iconfont">&#xe604;</span></a></li>
+						    	</ul>
+						    </div>
+						</li>
+						<li class="nav-item active"><a class="nav-link" href="#">小米手机</a></li>
+						<li class="nav-item"><a class="nav-link"href="#">Redmi红米</a></li>
+						<li class="nav-item"><a class="nav-link"href="#">电视</a></li>
+						<li class="nav-item"><a class="nav-link"href="#">笔记本</a></li>
+						<li class="nav-item"><a class="nav-link"href="#">家电</a></li>
+						<li class="nav-item"><a class="nav-link"href="#">路由器</a></li>
+						<li class="nav-item"><a class="nav-link"href="#">智能硬件</a></li>
+						<li class="nav-item"><a class="nav-link"href="#">服务</a></li>
+						<li class="nav-item"><a class="nav-link"href="#">社区</a></li>
+					</ul>
+				</div>
+				
+				<div class="site-search">
+					<div class="site-searchOne">
+						<div class="input-group" style="z-index: 100;">
+							<input type="text" v-on:blur="change()" v-on:focus="changeUp()" class="form-control search-text" v-model="keyword"v-on:keyup="getData" @keyup="getData($event)" @keydown.down="changedown" @keydown.up.prevent="changeup"/>
+						    <input type="submit" class="form-control search-btn iconfont" value="&#xe640;"/>
+						    <ul v-show="flag">
+								<li v-for="(value,index) in myData" :class="{current:index==now}">{{value}}</li>
+							</ul>
+						</div>
+						<div class="search-word" style="z-index: 101;">
+							<a href="#">小米9</a>
+							<a href="#">小米9SE</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		    <div class="header-nav-menu header-nav-menu-active "style="display: none;">
+		    	<div class="container">
+		    		<ul class="children-list clearfix">
+		    			<li class="first">
+		    				<div class="figure figure-thumb ">
+		    					<a href="#">
+		    						<img src="https://i1.mifile.cn/f/i/2019/micc9/_320.png" />
+		    					</a>
+		    				</div>
+		    			    <div class="title">
+		    			    	<a href="#">小米CC9</a>
+		    			    </div>
+		    			    <p class="price">2499元</p>
+		    			    <div class="flags">
+		    			    	<div class="flag">新品</div>
+		    			    </div> 
+		    			</li>
+		    			<li>
+		    				<div class="figure figure-thumb ">
+		    					<a href="#">
+		    						<img src="https://i1.mifile.cn/f/i/CC9E-320.png" />
+		    					</a>
+		    				</div>
+		    			    <div class="title">
+		    			    	<a href="#">小米CC9e</a>
+		    			    </div>
+		    			    <p class="price">1299元</p>
+		    			    <div class="flags">
+		    			    	<div class="flag">新品</div>
+		    			    </div>
+		    			</li>
+		    			<li>
+		    				<div class="figure figure-thumb ">
+		    					<a href="#">
+		    						<img src="https://i1.mifile.cn/f/i/2019/mitucc/320.png" />
+		    					</a>
+		    				</div>
+		    			    <div class="title">
+		    			    	<a href="#">小米CC9美图定制版</a>
+		    			    </div>
+		    			    <p class="price">2599元</p>
+		    			    <div class="flags">
+		    			    	<div class="flag">新品</div>
+		    			    </div>
+		    			</li>
+		    			<li>
+		    				<div class="figure figure-thumb ">
+		    					<a href="#">
+		    						<img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-320.png" />
+		    					</a>
+		    				</div>
+		    			    <div class="title">
+		    			    	<a href="#">小米9</a>
+		    			    </div>
+		    			    <p class="price">2799元</p>
+		    			    <div class="flags">
+		    			    	<div class="flag">新品</div>
+		    			    </div>
+		    			</li>
+		    			<li>
+		    				<div class="figure figure-thumb ">
+		    					<a href="#">
+		    						<img src="https://i1.mifile.cn/f/i/888.jpg" />
+		    					</a>
+		    				</div>
+		    			    <div class="title">
+		    			    	<a href="#">小米8 屏幕指纹版</a>
+		    			    </div>
+		    			    <p class="price">2499元</p>
+		    			    <div class="flags">
+		    			    	<div class="flag">新品</div>
+		    			    </div>
+		    			</li>
+		    			<li>
+		    				<div class="figure figure-thumb ">
+		    					<a href="#">
+		    						<img src="https://i1.mifile.cn/f/i/2018/mix3/mix.png" />
+		    					</a>
+		    				</div>
+		    			    <div class="title">
+		    			    	<a href="#">小米MIX 3</a>
+		    			    </div>
+		    			    <p class="price">2599元</p>
+		    			    <div class="flags">
+		    			    	<div class="flag">新品</div>
+		    			    </div>
+		    			</li>
+		    		</ul>
+		    	</div>
+		    </div>
+		    <div class="header-nav-menu header-nav-menu-active "style="display: none;">
+		    	<div class="container">
+		    		<ul class="children-list clearfix">
+		    			<li class="first">
+		    				<div class="figure figure-thumb ">
+		    					<a href="#">
+		    						<img src="https://i1.mifile.cn/f/i/2019/redmik20pro/red.jpg" />
+		    					</a>
+		    				</div>
+		    			    <div class="title">
+		    			    	<a href="#">Redmi K20 Pro</a>
+		    			    </div>
+		    			    <p class="price">2499元</p>
+		    			    <div class="flags">
+		    			    	<div class="flag">新品</div>
+		    			    </div> 
+		    			</li>
+		    			<li>
+		    				<div class="figure figure-thumb ">
+		    					<a href="#">
+		    						<img src="https://i1.mifile.cn/f/i/2019/redmik20/lanse.jpg" />
+		    					</a>
+		    				</div>
+		    			    <div class="title">
+		    			    	<a href="#">Redmi K20</a>
+		    			    </div>
+		    			    <p class="price">1999元</p>
+		    			    <div class="flags">
+		    			    	<div class="flag">新品</div>
+		    			    </div>
+		    			</li>
+		    			<li>
+		    				<div class="figure figure-thumb ">
+		    					<a href="#">
+		    						<img src="https://i1.mifile.cn/f/i/2019/redmi7a/black.jpg" />
+		    					</a>
+		    				</div>
+		    			    <div class="title">
+		    			    	<a href="#">Redmi 7A</a>
+		    			    </div>
+		    			    <p class="price">549元起</p>
+		    			    <div class="flags">
+		    			    	<div class="flag">新品</div>
+		    			    </div>
+		    			</li>
+		    			<li>
+		    				<div class="figure figure-thumb ">
+		    					<a href="#">
+		    						<img src="https://i1.mifile.cn/f/i/g/2019/redmi.jpg" />
+		    					</a>
+		    				</div>
+		    			    <div class="title">
+		    			    	<a href="#">Redmi Note7 Pro</a>
+		    			    </div>
+		    			    <p class="price">1399元</p>
+		    			    <div class="flags">
+		    			    	<div class="flag">新品</div>
+		    			    </div>
+		    			</li>
+		    			<li>
+		    				<div class="figure figure-thumb ">
+		    					<a href="#">
+		    						<img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note7320-220.png" />
+		    					</a>
+		    				</div>
+		    			    <div class="title">
+		    			    	<a href="#">Redmi Note7</a>
+		    			    </div>
+		    			    <p class="price">999元</p>
+		    			    <div class="flags">
+		    			    	<div class="flag">新品</div>
+		    			    </div>
+		    			</li>
+		    			<li>
+		    				<div class="figure figure-thumb ">
+		    					<a href="#">
+		    						<img src="https://i1.mifile.cn/f/i/2019/redmi7/320-220.png" />
+		    					</a>
+		    				</div>
+		    			    <div class="title">
+		    			    	<a href="#">Redmi 7</a>
+		    			    </div>
+		    			    <p class="price">699元</p>
+		    			    <div class="flags">
+		    			    	<div class="flag">新品</div>
+		    			    </div>
+		    			</li>
+		    		</ul>
+		    	</div>
+		    </div>
+		</div>
+		<!--主页内容，轮播区-->
+		<div class="swiper-header site-content">
+			<!--swiper插件轮播-->
+			<div class="swiper-wrapper site-slider ">
+				<div class="swiper-slide">
+					<a href="#">
+						<img src="https://i1.mifile.cn/a4/xmad_15632717871994_bYqIF.jpg" />
+					</a>
+				</div>
+				<div class="swiper-slide">
+					<a href="#">
+						<img src="https://i1.mifile.cn/a4/xmad_15625789613185_yOkET.jpg" />
+					</a>
+				</div>
+				<div class="swiper-slide">
+					<a href="#">
+						<img src="https://i1.mifile.cn/a4/xmad_15627254995865_hbFzT.jpg"/>
+					</a>
+				</div>
+				<div class="swiper-slide">
+					<a href="#">
+						<img src="https://i1.mifile.cn/a4/xmad_15613002137481_tCEzx.jpg"/>
+					</a>	
+				</div>
+			</div>
+			<div class="swiper-pagination"></div>
+			<!--添加左右控制按钮(箭头)-->
+			<div class="swiper-button-prev prev"></div>
+			<div class="swiper-button-next next"></div>
+		</div>
+		<!--主页内容，向导区-->
+		<div class="content-desc container">
+			<div class="home-hero-one">
+                <ul class="home-one-list">
+                	<li><a href="#"><span class="iconfont">&#xe63b;</span>选购手机</a></li>
+                	<li><a href="#"><span class="iconfont">&#xe625;</span>企业团购</a></li>
+                	<li><a href="#"><span class="iconfont">&#xe603;</span>F码通道</a></li>
+                	<li><a href="#"><span class="iconfont">&#xe600;</span>米粉卡</a></li>
+                	<li><a href="#"><span class="iconfont">&#xe601;</span>以旧换新</a></li>
+                	<li><a href="#"><span class="iconfont">&#xe602;</span>话费充值</a></li>
+                </ul> 
+			</div>
+			<div class="home-hero-two">
+				<ul class="home-two-list">
+					<li>
+						<a href="#">
+							<img  src="https://i1.mifile.cn/a4/xmad_15635211778456_lIxRQ.jpg" />
+						</a>
+					</li>
+					<li class="one">
+						<a href="#">
+							<img src="https://i1.mifile.cn/a4/xmad_15629205000801_vZyDb.jpg"  />
+						</a>
+					</li>
+					<li class="two">
+						<a href="#">
+							<img src="https://i1.mifile.cn/a4/xmad_15604776623629_bRHhl.jpg" />
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--主页内容，底部区-->
+		<div class="footer container">
+			<a href="#">
+				<img src="https://i1.mifile.cn/a4/xmad_15625126063988_sCIBm.jpg" alt="" />
+			</a>
+		</div>
+		<!--内容详情-->
+		<div class="iphone">
+			<div class="container">
+				<!--标题-->
+				<div class="box-hd">
+					<h2>手机</h2>
+					<div class="more">
+						<a href="#">
+							查看全部
+							<i class="iconfont">&#xe605;</i>
+						</a>
+					</div>
+				</div>
+				<!--内容-->
+				<div class="box-bd">
+				<div class="row">
+					<!--内容左边-->
+					<div class="row-l">
+						<a href="#">
+							<img src="https://i1.mifile.cn/a4/xmad_15632723287643_WkFwH.jpg" />
+						</a>
+					</div>
+					<!--内容右边-->
+					<div class="row-r">
+						<ul class="brick-list">
+							<li class="brick-item">
+								<!--图像-->
+								<div class="figure">
+									<a href="#">
+										<img src="https://i1.mifile.cn/a1/pms_1550642182.7527088!220x220.jpg">
+									</a>
+								</div>
+								<!--标题-->
+								<h3 class="title">
+									<a href="#">小米9 6GB+128GB</a>
+								</h3>
+								<p class="desc">骁龙855，索尼4800万超广角微距三摄</p>
+								<p class="price">
+									<span class="num">2999元</span>
+								</p>
+								<div class="flag flag-new">新品</div>
+								<div class="hidden" style="display: none;">
+									<p>
+										夏季新品，折扣减减减，欢迎购买，另有好品相送哦，来自淘宝贝！
+									</p>
+								</div>
+							</li>
+						    <li class="brick-item">
+								<div class="figure">
+									<a href="#">
+										<img src="https://i1.mifile.cn/a1/pms_1540429613.4617799!220x220.jpg">
+									</a>
+								</div>
+								<h3 class="title">
+									<a href="#">小米MIX 3 6GB+128GB</a>
+								</h3>
+								<p class="desc">磁动力滑盖全面屏 / 四曲面陶瓷机身</p>
+								<p class="price">
+									<span class="num">3299元</span>
+								</p>
+								<div class="flag flag-new">新品</div>
+								<div class="hidden" style="display: none;">
+									<p>
+										夏季新品，折扣减减减，欢迎购买，另有好品相送哦，来自淘宝贝！
+									</p>
+								</div>
+						    </li>
+						    <li class="brick-item">
+						    	<div class="figure">
+									<a href="#">
+										<img src="https://i1.mifile.cn/a1/pms_1552647865.67536173!220x220.jpg">
+									</a>
+								</div>
+								<h3 class="title">
+									<a href="#">RedMi note 7 Pro</a>
+								</h3>
+								<p class="desc">6GB+128GB大存储，索尼4800万拍照</p>
+								<p class="price">
+									<span class="num">1599元</span>
+								</p>
+								<div class="flag flag-new">新品</div>
+								<div class="hidden" style="display: none;">
+									<p>
+										夏季新品，折扣减减减，欢迎购买，另有好品相送哦，来自淘宝贝！
+									</p>
+								</div>
+						    </li>
+						    <li class="brick-item">
+						    	<div class="figure">
+									<a href="#">
+										<img src="https://i1.mifile.cn/a1/pms_1554694214.08887531!220x220.png">
+									</a>
+								</div>
+								<h3 class="title">
+									<a href="#">小米 play 4+64GB</a>
+								</h3>
+								<p class="desc">八核高性能处理器，后置1200万 AI 双摄</p>
+								<p class="price">
+									<span class="num">799元</span>
+								</p>
+								<div class="flag flag-new">新品</div>
+								<div class="hidden" style="display: none;">
+									<p>
+										夏季新品，折扣减减减，欢迎购买，另有好品相送哦，来自淘宝贝！
+									</p>
+								</div>
+						    </li>
+						    <li class="brick-item">
+						    	<div class="figure">
+									<a href="#">
+										<img src="https://i1.mifile.cn/a1/pms_1554694214.08887531!220x220.png">
+									</a>
+								</div>
+								<h3 class="title">
+									<a href="#">小米 play 4+64GB</a>
+								</h3>
+								<p class="desc">八核高性能处理器，后置1200万 AI 双摄</p>
+								<p class="price">
+									<span class="num">799元</span>
+								</p>
+								<div class="flag flag-new">新品</div>
+								<div class="hidden" style="display: none;">
+									<p>
+										夏季新品，折扣减减减，欢迎购买，另有好品相送哦，来自淘宝贝！
+									</p>
+								</div>
+						    </li>
+						    <li class="brick-item">
+						    	<div class="figure">
+									<a href="#">
+										<img src="https://i1.mifile.cn/a1/pms_1554694214.08887531!220x220.png">
+									</a>
+								</div>
+								<h3 class="title">
+									<a href="#">小米 play 4+64GB</a>
+								</h3>
+								<p class="desc">八核高性能处理器，后置1200万 AI 双摄</p>
+								<p class="price">
+									<span class="num">799元</span>
+								</p>
+								<div class="flag flag-new">新品</div>
+								<div class="hidden" style="display: none;">
+									<p>
+										夏季新品，折扣减减减，欢迎购买，另有好品相送哦，来自淘宝贝！
+									</p>
+								</div>
+						    </li>
+						    <li class="brick-item">
+						    	<div class="figure">
+									<a href="#">
+										<img src="https://i1.mifile.cn/a1/pms_1554694214.08887531!220x220.png">
+									</a>
+								</div>
+								<h3 class="title">
+									<a href="#">小米 play 4+64GB</a>
+								</h3>
+								<p class="desc">八核高性能处理器，后置1200万 AI 双摄</p>
+								<p class="price">
+									<span class="num">799元</span>
+								</p>
+								<div class="flag flag-new">新品</div>
+								<div class="hidden" style="display: none;">
+									<p>
+										夏季新品，折扣减减减，欢迎购买，另有好品相送哦，来自淘宝贝！
+									</p>
+								</div>
+						    </li>
+						    <li class="brick-item">
+						    	<div class="figure">
+									<a href="#">
+										<img src="https://i1.mifile.cn/a1/pms_1554694214.08887531!220x220.png">
+									</a>
+								</div>
+								<h3 class="title">
+									<a href="#">小米 play 4+64GB</a>
+								</h3>
+								<p class="desc">八核高性能处理器，后置1200万 AI 双摄</p>
+								<p class="price">
+									<span class="num">799元</span>
+								</p>
+								<div class="flag flag-new">新品</div>
+								<div class="hidden" style="display: none;">
+									<p>
+										夏季新品，折扣减减减，欢迎购买，另有好品相送哦，来自淘宝贝！
+									</p>
+								</div>
+						    </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		    </div>
+		</div>
+		<!--脚部-->
+		<div class="site-footer">
+			<div class="container">
+				<div class="footer-service">
+					<ul class="list-service ">
+						<li><a href="#"><i class="iconfont">&#xe7bf;</i>预约维修服务</a></li>
+						<li><a href="#"><i class="iconfont">&#xe706;</i>7天无理由退货</a></li>
+						<li><a href="#"><i class="iconfont">&#xe6a4;</i>15天免费换货</a></li>
+						<li><a href="#"><i class="iconfont">&#xe625;</i>满150包邮</a></li>
+						<li><a href="#"><i class="iconfont">&#xe606;</i>520家售后网点</a></li>
+					</ul>
+				</div>
+				<div class="footer-link">
+					<dl class="col-item">
+							<dt>帮助中心</dt>
+							<dd>账户指南</dd>
+							<dd>购物指南</dd>
+							<dd>订单操作</dd>
+						</dl>
+					<dl class="col-item">
+							<dt>服务支持</dt>
+							<dd>售后政策</dd>
+							<dd>自助服务</dd>
+							<dd>相关下载</dd>
+						</dl>
+					<dl class="col-item">
+							<dt>线下门店</dt>
+							<dd>小米之家</dd>
+							<dd>服务网点</dd>
+							<dd>授权体验店</dd>
+						</dl>
+					<dl class="col-item">
+							<dt>关于小米</dt>
+							<dd>了解小米</dd>
+							<dd>加入小米</dd>
+							<dd>投资者关系</dd>
+						</dl>
+					<dl class="col-item">
+							<dt>关注我们</dt>
+							<dd>新浪微博</dd>
+							<dd>官方微信</dd>
+							<dd>联系我们</dd>
+						</dl>
+					<dl class="col-item">
+							<dt>特色服务</dt>
+							<dd>F码通道</dd>
+							<dd>礼物码</dd>
+							<dd>防伪查询</dd>
+						</dl>
+				    <div class="col-contact">
+				    	<p class="phone">400-800-888</p>
+				    	<p>周一至周五8:00-18:00<br>(欢迎致电)</p>
+				    	<a href="#"><i class="iconfont">&#xe607;</i>联系客服</a>
+				    </div>
+				</div>
+			</div>
+		</div>
+		
+		<div></div>
+	<script src="js/ximi/shopping.js"></script>
+	<script src="js/ximi/indexSearch.js"></script>
+	</body>
+
+
+</html>

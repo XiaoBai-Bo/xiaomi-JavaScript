@@ -1,0 +1,768 @@
+body{
+	color: #333;
+}
+ul,li{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+}
+
+/*小米顶部*/
+.topBar{
+	width: 100%;
+	height: 40px;
+	background-color: #333;
+	min-width: 1200px;
+	
+}
+.topBar .login .login-user{
+	position:absolute;
+	right:345px;
+	width: 120px;
+	height: 164px;
+	text-align: center;
+	/*margin-top: 40px;*/
+	z-index: 999;
+	font-size: 10px;
+	background-color: #fff;
+	box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+//
+.topBar .login .user-name{
+	width: 240px;
+}
+.topBar .login .user-name a{
+	width: 120px;
+	height: 40px;
+	text-align: center;
+}
+.topBar .login .user-name #unname p{
+	margin: 0;
+	padding: 0;
+}
+
+//
+.topBar .login .user-name .login-user ul{
+	margin-top: 7px;
+}
+.topBar .login .login-user li{
+	height: 30px;
+	line-height: 30px;
+}
+.topBar .login .login-user li a{
+	height: 30px;
+	width: 120px;
+	line-height: 30px;
+	color: #000;
+}
+.topBar .login .login-user li a:hover{
+	color: #FF6700;
+	background-color: rgba(119, 108, 247, 0.13);
+}
+.container{
+	width: 1226px;
+	height: 100%;
+	margin: 0 auto;
+	padding: 0;
+	min-width: 1226px;
+}
+.topBar .topBar-list{
+	float: left;
+}
+.topBar .shop{
+	float: right;
+	height: 40px;
+	width: 120px;
+	line-height: 40px;
+	text-align: center;
+	background-color: #424242;
+	margin-left: 15px;
+}
+.topBar .login{
+	float: right;
+	width: auto;
+}
+.topBar .login a{
+	color: #b0b0b0;
+}
+.topBar a{
+	color: #b0b0b0;
+	font-size: 12px;
+	display: inline-block;
+	line-height: 40px;
+	text-decoration: none;
+}
+.topBar .shop a{
+	width:120px;
+	height: 40px;
+	display: inline-block;
+}
+.topBar .shops{
+	float: right;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	width: 296px;
+	height: auto;
+	z-index: 999;
+	background-color: #fff;
+	box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+.topBar .shops .shops-title{
+	height: auto;
+	/*line-height: 100px;*/
+	font-size: 10px;
+}
+.topBar .shops .shops-title table{
+	margin: 0;
+}
+.topBar .shops .shops-title table thead tr th{
+	height: 20px;
+	padding: 0 12px 0 12px;
+}
+.topBar .shops .shops-title table tbody tr td{
+	padding: 0 12px 0 12px;
+}
+.topBar a:hover{
+	color: #fff;
+}
+.topBar .login a:hover{
+	color: #FFFFFF;
+}
+.topBar span{
+	color: #888;
+	margin: 0 .5em;
+}
+.topBar .login-user{
+}
+
+/*小米顶部结束*/
+
+/*小米导航栏*/
+.current{
+        		background-color:#DEE2E6 ;
+}
+
+[v-cloak] {
+    display: none;
+}
+.header{
+	position: relative;
+	height: 100px;
+	/*background-color: #8C8C8C;*/
+}
+.header .site-logo{
+	float: left;
+	width: 62px;
+	margin-top: 22px;
+}
+.header .site-logo a{
+	display: inline-block;
+	width: 56px;
+	height: 56px;
+}
+.header .site-logo a img{
+	width: 56px;
+	height: 56px;
+}
+.header .site-list{
+	float: left;
+	width: 850px;
+	height:100px;
+	margin: 0;
+	padding: 0;
+}
+.header .site-list>ul{
+	position: relative;
+	float: left;
+	z-index: 10;
+	width: 850px;
+	height: 100px;
+	padding: 12px 0 0 30px;
+	margin: 0;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+}
+.header .site-list>ul>li{
+	position: relative;
+	float: left;
+	text-align: center;
+}
+.header .site-list>ul>li>a{
+	padding-right:  10px ;
+	color:#333;
+	line-height: 72px;
+}
+.header .site-list>ul .site-category .category-list{
+	display: block;
+	position: absolute;
+	top: 88px;
+	left: -92px;
+	width: 234px;
+	height: 460px;
+	background-color: rgb(0,0,0,0.6);
+	z-index: 2;
+}
+.site-category .category-list>ul{
+	width: 234px;
+	height: 460px;
+	list-style-type: none;
+	padding: 20px 0;
+}
+.site-category .category-list>ul li{
+	width: 234px;
+	height: 42px;
+}
+.site-category .category-list>ul li:hover{
+	background: #FF6700;
+}
+.site-category .category-list>ul li a{
+	position: relative;
+	display: block;
+	width: 234px;
+	height: 42px;
+	padding-left: 30px;
+	line-height: 42px;
+	text-align: left;
+	text-decoration: none;
+	color: #e0e0e0;
+}
+.site-category .category-list>ul li a span{
+	position: absolute;
+	right: 20px;
+	font-size: 20px;
+	line-height: 42px;
+}
+.header .site-list>ul>li>a:hover{
+	color: #ff6700;
+}
+.header .site-search{
+	float: right;
+	width: 296px;
+	height: 80px;
+	margin-top: 25px;
+	margin: 10px 0 10px 0;
+	z-index: 1;
+}
+.header .site-search .site-searchOne{
+	position: relative;
+	/*width: 300px;*/
+	height: 50px;
+	margin: 15px 0 15px 0;
+}
+.header .site-search .site-searchOne .search-text{
+	float: left;
+	width: 230px;
+	height: 50px;
+	/*border: 1px solid #101010;*/
+	font-size: 14px;
+}
+.header .site-search .site-searchOne .search-btn{
+	float: right;
+	width: 60px;
+	height: 50px;
+	font-size: 24px;
+}
+.header .site-search .site-searchOne .search-btn:hover{
+	background-color: #FF6700;
+}
+.header .site-search .site-searchOne .search-word{
+	position: absolute;
+	width: 100px;
+	height: 21px;
+	font-size: 10px;
+	top: 14px;
+	right: 62px;
+}
+.header .site-search .site-searchOne .search-word a{
+	background: #eee;
+    color: #757575;
+}
+.header .site-search .site-searchOne .search-word a:hover{
+	text-decoration: none;
+	background-color: #ff6700;
+	color: white;
+}
+.header .site-search .site-searchOne .search-text:focus {
+	border-color: #ff6700;
+}
+.header .site-search .site-searchOne .search-btn:focus{
+	border-color: #ff6700;
+}
+.header .site-search .site-searchOne ul{
+	background-color:pink ;
+	width: 100%;
+	border-radius: 10px;
+}
+.header .site-search .site-searchOne ul li{
+	height: 30px;
+	margin: 5px 0 5px 5px;
+	line-height: 30px;
+}
+.header .header-nav-menu{
+	position: absolute;
+	top: 100px;
+    left: 0;
+    z-index: 24;
+    width: 100%;
+    height: 229px;
+    border-top: 1px solid #e0e0e0;
+    background: #fff;
+}
+.header .header-nav-menu .children-list li{
+	position: relative;
+	width: 204px;
+	height: 201px;
+	float: left;
+}
+.header .header-nav-menu .children-list .figure-thumb{
+	position: relative;
+	top: 30px;
+	left: 22px;
+	width: 160px;
+	height: 110px;
+}
+.header .header-nav-menu .children-list .figure-thumb a{
+	display: block;
+	width: 160px;
+    height: 110px;
+}
+.header .header-nav-menu .children-list .title{
+	position: absolute;
+	bottom: 30px;
+	width: 204px;
+	text-align: center;
+}
+.header .header-nav-menu .children-list .title a{
+	text-decoration: none;
+	color: #333;
+	font-size: 10px;
+}
+.header .header-nav-menu .children-list p{
+	position: absolute;
+	bottom: 10px;
+	margin: 0;
+	width: 204px;
+	text-align: center;
+	color: #FF6700;
+	font-size: 10px;
+}
+.header .header-nav-menu .children-list .flags{
+	position: absolute;
+	top: 2px;
+	left: 72px;
+	width: 60px;
+	text-align: center;
+	color: #FF6700;
+	font-size: 10px;
+	border: 1px solid #FF6700;
+}
+.header .header-nav-menu .figure-thumb img{
+	width: 160px;
+    height: 110px;
+    border-right:1px solid #ccc;
+}
+
+/*小米导航栏结束*/
+
+/*小米站点内容*/
+.site-content{
+	position: relative;
+	width: 1226px;
+	height: 460px;
+	border: 1px solid red;
+	/*margin-top: 20px;*/
+	margin-right: auto;
+    margin-left: auto;
+}
+.site-content .prev{
+	position: absolute;
+	left: 231px;
+	width: 40px;
+	height: 60px;
+}
+.site-content .prev:hover{
+	background-color: rgb(0,0,0,0.6);
+}
+.site-content .next{
+	position: absolute;
+	right: -1px;
+	width: 40px;
+	height: 60px;
+}
+.site-content .next:hover{
+	background-color: rgb(0,0,0,0.6);
+}
+.site-content .site-slider{
+	width: 1200px;
+}
+.site-content .site-slider a{
+	display: block;
+	width:1200px
+}
+.site-content .site-slider a img{
+	width: 1226px;
+	height: 460px;
+	
+}
+/*小米站点内容结束*/
+
+/*小米主页内容，向导区*/
+.content-desc{
+	position: relative;
+	width: 1226px;
+	height: 170px;
+	margin-top:10px;
+}
+.content-desc .home-hero-one{
+	float: left;
+	width: 234px;
+	height: 170px;
+	background-color: #424242;
+}
+.content-desc .home-hero-one ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+.content-desc .home-hero-one ul li{
+	float: left;
+	width: 76px;
+	height: 82px;
+	padding: 0 3px;
+	font-size: 12px;
+}
+.content-desc .home-hero-one ul li a{
+	display: block;
+	width: 76px;
+	height: 82px;
+	padding-top: 18px;
+	text-align: center;
+	text-decoration: none;
+	color: rgb(255,255,255,0.7);
+}
+.content-desc .home-hero-one ul li a span{
+	display: block;
+	font-size: 24px;
+	line-height: 24px;
+	width: 70px;
+	height: 24px;
+}
+.content-desc .home-hero-one ul li a:hover{
+	color: #fff;
+}
+.content-desc .home-hero-two{
+	position: absolute;
+	right: 0;
+	width: 975px;
+	height: 170px;
+    min-height: 1px;
+}
+.content-desc .home-hero-two ul{
+	list-style-type: none;
+	padding: 0;
+}
+.content-desc .home-hero-two ul li{
+	float: left;
+	display: block;
+	width: 316px;
+	height: 170px;
+	margin: 0;
+	padding: 0;
+}
+.content-desc .home-hero-two ul li:hover{
+	box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+	-webkit-transition: -webkit-box-shadow .3s linear;
+    transition: box-shadow .3s ease-in-out;
+}
+.content-desc .home-hero-two ul li a{
+	display: block;
+	width: 316px;
+	height: 170px;
+}
+.content-desc .home-hero-two .one{
+	margin-left: 13px;
+}
+.content-desc .home-hero-two .two{
+	margin-left: 13px;
+}
+.content-desc img{
+	width: 316px;
+	height: 170px;
+}
+/*小米主页内容，向导区结束*/
+
+/*主页内容，底部区*/
+.footer{
+	width: 1226px;
+	height: 130px;
+	margin-top: 15px;
+	padding: 0;
+}
+.footer a{
+	display: block;
+	width: 1226px;
+	height: 120px;
+}
+.footer a img{
+	position: absolute;
+	margin-left: 0;
+	margin-right: 0;
+	width: 1226px;
+	height: 120px;
+}
+/*主页内容，底部区结束*/
+
+/*内容详情开始*/
+.iphone{
+	margin-top: 20px;
+	background-color:#f5f5f5;
+	padding-top:22px ;
+}
+.iphone .box-hd h2{
+	height: 58px;
+	margin: 0;
+	line-height: 58px;
+}
+.iphone .box-hd .more{
+	position: relative;
+	top: -58px;
+	width: 92px;
+	height: 58px;
+	float: right;
+    text-align: center;
+    line-height: 58px;
+}
+.iphone .box-hd .more a{
+	text-decoration: none;
+	color: #333;
+}
+.iphone .box-hd .more a:hover{
+	color: #FF6700;
+	transition: all .4s;
+}
+.iphone .box-hd a{
+	display: block;
+	width: 92px;
+	height: 58px;
+}
+.iphone .box-bd{
+	width: 1240px;
+	/*height: 628px;*/
+	height: 660px;
+}
+.iphone .box-bd .row{
+	position: absolute;
+	width: 1226px;
+	margin:0;
+}
+.iphone .box-bd .row .row-l{
+	width: 234px;
+	height: 614px;
+}
+.iphone .box-bd .row .row-l a{
+	display: block;
+	width: 234px;
+	height: 614px;
+}
+.iphone .box-bd .row .row-l img{
+	width: 234px;
+	height: 614px;
+}
+.iphone .box-bd .row .row-r{
+	width: 978px;
+	height: 628px;
+}
+.iphone .box-bd .row .row-r .brick-list{
+	width: 992px;
+	height: 614px;
+}
+.iphone .box-bd .row .row-r .brick-item{
+	position: relative;
+	float: left;
+	list-style-type: none;
+	width: 234px;
+	height: 300px;
+	margin-left: 14px;
+	margin-bottom: 14px;
+	border: 1px solid red;
+	background-color:#fff;
+}
+.iphone .box-bd .row .row-r .brick-item:hover{
+    box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+	-webkit-transition: -webkit-box-shadow .3s linear;
+    transition: box-shadow .3s ease-in-out;
+}
+.iphone .box-bd .row .row-r .figure{
+	position: relative;
+	width: 160px;
+	height: 160px;
+	top: 20px;
+	left: 37px;
+	margin: 0 auto 18px;
+}
+.iphone .box-bd .row .row-r .figure a{
+	display: block;
+	width: 160px;
+	height: 160px;
+}
+.iphone .box-bd .row .row-r .brick-list .brick-item .title{
+	position: relative;
+	font-size: 14px;
+	text-align: center;
+	top: 15px;
+	height: 21px;
+	line-height: 21px;
+	margin: 0 auto;
+}
+.iphone .box-bd .row .row-r .brick-list .brick-item .title a{
+	text-decoration: none;
+	color: #333;
+}
+.iphone .box-bd .row .row-r .brick-list .brick-item .desc{
+	position: absolute;
+	margin-top: 20px;
+	width: 234px;
+	text-align: center;
+	font-size: 12px;
+	height: 18px;
+	margin-bottom: 0;
+	
+}
+.iphone .box-bd .row .row-r .brick-list .brick-item .price{
+	position: relative;
+	width: 234px;
+	text-align: center;
+	font-size: 12px;
+	top: 50px;
+	color: #FF6700;
+}
+.iphone .box-bd .row .row-r .brick-list .brick-item .flag{
+	position: absolute;
+	top: 0;
+	left: 86px;
+	width: 60px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	background-color: #83c44e;
+	color: #fff;
+	font-size: 5px;
+}
+.iphone .box-bd .row .row-r .brick-list .brick-item .figure{
+	width: 160px;
+	height: 160px;
+}
+.iphone .box-bd .row .row-r .brick-list .brick-item .figure img{
+	width: 160px;
+	height: 160px;
+}
+.iphone .box-bd .row .row-r .brick-list .brick-item .hidden{
+	position: absolute;
+	bottom: 0;
+	width: 234px;
+	height: 80px;
+	text-align: center;
+	/*border: 1px solid blue;*/
+	background-color: #FF6700;
+	color: #fff;
+	font-size: 10px;
+	overflow: auto;
+}
+.iphone .box-bd .row .row-r .brick-list .brick-item .hidden p{
+	margin-top: 20px;
+}
+/*内容详情结束*/
+
+/*脚部*/
+.site-footer .footer-service{
+	width: 1226px;
+	height: 80px;
+	border-bottom: 1px solid #ccc;
+}
+.site-footer .footer-service .list-service li{
+	position: relative;
+	float: left;
+	height: 40px;
+	line-height: 40px;
+	width: 245.2px;
+	top: 20px;
+	text-align: center;
+	border-right: 1px solid #CCC;
+}
+.site-footer .footer-service .list-service li a{
+	color: #616161;
+	text-decoration: none;
+}
+.site-footer .footer-service .list-service li a:hover{
+	color: #FF6700;
+	transition: all .4s;
+}
+.site-footer .footer-link{
+	width: 1226px;
+	height: 150px;
+}
+.site-footer .footer-link .col-item{
+	float: left;
+	width: 163.4px;
+	height: 150px;
+	text-align: center;
+}
+.site-footer .footer-link .col-item dt{
+	margin-top: 15px;
+	font-size: 14px;
+}
+.site-footer .footer-link .col-item dd{
+	font-size: 12px;
+	margin-top: 15px;
+}
+.site-footer .footer-link .col-item dt:hover,dd:hover,p:hover{
+	color: #FF6700;
+	transition: all .1s;
+}
+.site-footer .footer-link .col-contact{
+	width: 245.2px;
+	height: 200px;
+	float: right;
+	/*border: 1px solid red;*/
+}
+.site-footer .footer-link .col-contact p{
+	text-align: center;
+	margin-top: 15px;
+}
+.site-footer .footer-link .col-contact a{
+	display: block;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #FF6700;
+	font-size: 5px;
+	text-decoration: none;
+	text-align: center;
+	margin: 0 auto;
+	color: #333;
+}
+.site-footer .footer-link .col-contact a:hover{
+	background-color: #FF6700;
+	transition: all 0.2s;
+	color: #fff;
+}
+/*脚部结束*/
+
+
+
+
+
+
+
+
+
+
